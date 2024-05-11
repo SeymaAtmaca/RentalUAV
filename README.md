@@ -10,7 +10,7 @@ UAV Rental, Django ve Bootstrap kullanılarak geliştirilmiş bir web uygulamas�
 <br><br>
 ## ✈️ Kurulum
 
-1. Projeyi klonlayın:
+1.Projeyi klonlayın:
 
 ```bash
 git clone https://github.com/SeymaAtmaca/RentalUAV.git
