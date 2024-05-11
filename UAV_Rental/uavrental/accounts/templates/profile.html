@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Mevcut kullanıcı hesabı yazılır -->
+        <h1 style="margin-top:50px;font-weight:bold"> Profil - {{ request.user.username }}</h1>
+        <br><br>
+        <h2>UAV'ler:</h2>
+        <table class="table">
+            <thead>
+
+            </thead>
+            <tbody>
+                <!-- uav lere ait liste döndüren for döngüsü -->
+                {% for uav in uavs %}
+                <tr>
+                    <td>{{ uav }}</td>
+                    <!-- Kullanıcı admin ise gösterilen alanlar -->
+                    <td>{% if request.user.is_superuser %}
+                        <!-- pk, mevcut seçilen uav yi belirtir -->
+                        <a href="{% url 'uav-update' pk=uav.pk %}" class="btn btn-warning">UAV Güncelle</a>
+
+                        <a href="{% url 'uav-delete' pk=uav.pk %}" class="btn btn-danger">UAV Sil</a>
+                    {% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if request.user.is_superuser %}
+            <a href="{% url 'uav-create' %}" class="btn btn-primary">UAV Oluştur</a>
+        {% endif %}
+ 
+
+        <br><br>
+        <h2>Kiralamalarınız:</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>İsim</th>
+                    <th>Başlangıç Tarihi</th>
+                    <th>Bitiş Tarihi</th>
+                    <th>Güncelle</th>
+                    <th>İptal Et</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Her bir kiralamaya ait bilgilerin basıldığı döngü -->
+                {% for rental in user_rentals %}
+                <tr>
+                    <td>{{ rental.uav }}</td>
+                    <td>{{ rental.date_start }}</td>
+                    <td>{{ rental.date_end }}</td>
+                    <td><a href="{% url 'rental-update' pk=rental.pk%}" class="btn btn-primary">Güncelle</a></td>
+                    <td><a href="{% url 'rental-delete' pk=rental.pk%}" class="btn btn-primary">İptal</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <br>
+        <a href="{% url 'rental-create' %}" class="btn btn-primary">UAV Kirala</a>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

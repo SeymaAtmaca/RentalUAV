@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}UAV Detail{% endblock %}
+
+{% block content %}
+    <div class="uav-detail">
+        <h2>UAV Detail</h2>
+        <ul>
+            <li><strong>Brand:</strong> {{ uav.brand }}</li>
+            <li><strong>Model:</strong> {{ uav.model }}</li>
+            <li><strong>Weight:</strong> {{ uav.weight }}</li>
+            <li><strong>Category:</strong> {{ uav.category }}</li>
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+<!-- UAV detay formu -->
+{% block title %}UAV Detail{% endblock %}
+
+{% block content %}
+    <div class="uav-detail">
+        <h2>UAV Detail</h2> <!-- UAV detayı başlığı -->
+        <ul>
+            <li><strong>Brand:</strong> {{ uav.brand }}</li> <!-- Marka bilgisi-->
+            <li><strong>Model:</strong> {{ uav.model }}</li> <!-- Model bilgisi-->
+            <li><strong>Weight:</strong> {{ uav.weight }}</li> <!-- Ağırlık bilgisi-->
+            <li><strong>Category:</strong> {{ uav.category }}</li> <!-- Kategori bilgisi-->
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Silmeyi Onayla{% endblock %}
+<!-- Silme Onayı Sayfasına ait template -->
+{% block content %}
+  <h2>Silmeyi Onayla</h2>
+  <p>Bu kiralamayı silmek istediğinizden emin misiniz?</p>
+  <form method="post" action="{% url 'rental-delete' rental.pk %}">
+    {% csrf_token %}
+    <button type="submit">Sil</button>
+    <a href="{% url 'profile' %}">İptal</a>
+  </form>
+{% endblock %}

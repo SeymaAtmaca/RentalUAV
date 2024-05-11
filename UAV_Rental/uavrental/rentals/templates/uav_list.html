@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}UAV List{% endblock %}
+
+{% block content %}
+    <div class="uav-list">
+        <h2>UAV List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Brand</th> <!-- Marka -->
+                    <th>Model</th> <!-- Model -->
+                    <th>Weight</th> <!-- Ağırlık -->
+                    <th>Category</th> <!-- Kategori -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for uav in uav_list %}
+                    <tr>
+                        <td>{{ uav.brand }}</td> <!-- Marka bilgisi -->
+                        <td>{{ uav.model }}</td> <!-- Model bilgisi -->
+                        <td>{{ uav.weight }}</td> <!-- Ağırlık bilgisi -->
+                        <td>{{ uav.category }}</td> <!-- Kategori bilgisi -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'rental-create' %}">Create Rental</a> <!-- Yeni bir kiralama oluşturmak için bağlantı -->
+{% endblock %}

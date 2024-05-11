@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Rental List{% endblock %}
+
+{% block content %}
+    <h2>Rental List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>UAV</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Renting Member</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Liste elemanlarına ait döngü -->
+            {% for rental in rental_list %}
+                <tr>
+                    <!-- her elemana ait bilgilerin bastırılması -->
+                    <td>{{ rental.uav }}</td>
+                    <td>{{ rental.date_start }}</td>
+                    <td>{{ rental.date_end }}</td>
+                    <td>{{ rental.renting_member }}</td>
+                    <td>
+                        <a href="{% url 'rental-detail' rental.pk %}">Detail</a> |
+                        <a href="{% url 'rental-update' rental.pk %}">Update</a> |
+                        <a href="{% url 'rental-delete' rental.pk %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

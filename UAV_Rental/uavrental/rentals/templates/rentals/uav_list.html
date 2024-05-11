@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}UAV List{% endblock %}
+
+{% block content %}
+    <div class="uav-list">
+        <h2>UAV List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Weight</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for uav in uav_list %}
+                    <tr>
+                        <td>{{ uav.brand }}</td>
+                        <td>{{ uav.model }}</td>
+                        <td>{{ uav.weight }}</td>
+                        <td>{{ uav.category }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
