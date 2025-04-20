@@ -2,7 +2,7 @@
 
 UAV Rental, Django ve Bootstrap kullanılarak geliştirilmiş bir web uygulamasıdır. Bu uygulama, kullanıcıların dronları kiralayabileceği ve yönetebileceği bir platform sağlar.
 <br><br>
-## ✈️ Özellikler
+## ✈️ Özellikler 
 
 - Kullanıcılar, dronları listeleyebilir, detaylarını görebilir, oluşturabilir, güncelleyebilir ve silebilir.
 - Kullanıcılar, kiralama işlemlerini listeleyebilir, detaylarını görebilir, oluşturabilir, güncelleyebilir ve silebilir.
